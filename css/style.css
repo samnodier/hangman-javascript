@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Roboto:wght@300;400;700&Righteous&display=swap');
+
+* {
+	box-sizing: border-box;
+}
+h1, h2, h3 {
+	font-family: Montserrat, sans-serif;
+}
+
+body {
+	height: 100vh;
+	color: #FFF;
+	font-family: Roboto, sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+/* Add a dark overlay */
+body::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, .9);
+}
+
+body * {
+	z-index: 1;
+}
+
+h1 {
+	padding: 1rem 0;
+	text-align: center;
+}
+
+.container__text {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 3rem;
+}
+
+.container__game {
+	position: relative;
+	padding: 1rem 2rem;
+	height: 23rem;
+	width: 30rem;
+}
+
+.container__figure {
+	fill: transparent;
+	stroke: #FFF;
+	stroke-width: 2px;
+	stroke-linecap: round;
+}
+
+.container__figure--base {
+	stroke-width: 30px;
+	stroke-linecap: square;
+}
+
+.container__figure--part {
+	display: none;
+}
+
+.container__wrongletters {
+    position: absolute;
+    top: 2rem;
+    right: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+
+#wrongletters span {
+	text-transform: uppercase;
+	font-family: Montserrat, sans-serif;
+}
+
+.container__word {
+	display: flex;
+	position: absolute;
+	bottom: 1rem;
+	left: 50%;
+	transform: translateX(-50%);
+	text-transform: uppercase;
+}
+
+.letter {
+	border-bottom: 2px solid #c0c0c0;
+	display: inline-flex;
+	font-size: 2rem;
+	align-items: center;
+	justify-content: center;
+	margin: 0 3px;
+	height: 50px;
+	width: 30px;
+}
+
+.popup {
+    background: #FFF;
+    color: #010b05;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 4px 20px rgba(255,255,255,0.5);
+    padding: 31px;
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+}
+
+#popup__final-message {
+    text-align: center;
+    margin: 0;
+}
+
+.popup__emoji {
+    width: 30px;
+    height: 30px;
+    margin: 0 15px -4px;
+}
+
+#popup__final-message--reveal-word {
+    font-size: 1.2rem;
+}
+
+#popup__final-message--reveal-word span {
+	font-family: Righteous, sans-serif;
+	text-transform: uppercase;
+    font-weight: bold;
+}
+
+#popup__play-button {
+    padding: 12px 16px;
+    border: none;
+    background: #010b05;
+    border-radius: 3px;
+    color: #FFF;
+    font-size: 1rem;
+    font-weight: 100;
+    margin-top: 10px;
+    cursor: pointer;
+	transition: background .3s ease;
+}
+
+#popup__play-button:hover {
+	background: #010b05de;
+}
+
+#popup__play-button:active {
+	transform: scale(.99);
+}
+#popup__play-button:focus {
+	outline: none;
+}
+
+.container__notification {
+    background: rgb(20 30 24 / 1);
+    padding: 7px 25px;
+    text-align: center;
+    border-radius: 10px 10px 0;
+    position: absolute;
+    bottom: -70px;
+    left: 50%;
+    transform: translate(-50%);
+    transition: bottom .5s ease-in-out;
+}
+
+.container__notification.show {
+	bottom: -8px;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="./css/style.css">
+	<title>Hangman - proprgrmmr</title>
+</head>
+<body>
+	<div class="container">
+		<h1>Hangman</h1>
+		<p class="container__text">Find the hidden word by typing the letters!</p>
+	    <div class="container__game">
+			<svg height="280" width="200" class="container__figure">
+		        <!-- Rod -->
+		        <line x1="60" y1="20" x2="185" y2="20"></line>
+		        <line x1="160" y1="21" x2="160" y2="50"></line>
+		        <line x1="60" y1="20" x2="60" y2="255"></line>
+			    <line x1="60" y1="55" x2="100" y2="20"></line>
+		        <line x1="20" y1="270" x2="100" y2="270" class="container__figure--base"></line>
+
+		        <!-- Head -->
+		        <circle cx="160" cy="70" r="20" class="container__figure--part"></circle>
+		        <!-- Body -->
+		        <line x1="160" y1="90" x2="160" y2="150" class="container__figure--part"></line>
+		        <!-- Arms -->
+		        <line x1="160" y1="120" x2="130" y2="105" class="container__figure--part"></line>
+		        <line x1="160" y1="120" x2="190" y2="105" class="container__figure--part"></line>
+		        <!-- Legs -->
+		        <line x1="160" y1="150" x2="145" y2="190" class="container__figure--part"></line>
+		        <line x1="160" y1="150" x2="165" y2="190" class="container__figure--part"></line>
+			</svg>
+			<div class="container__wrongletters">
+				<div id="wrongletters"></div>
+			</div>
+
+			<div class="container__word" id="word"></div>
+	    </div>
+
+	    <!-- Container for final message -->
+		<div class="popup">
+			<h2 id="popup__final-message"></h2>
+			<p id="popup__final-message--reveal-word"></p>
+			<button id="popup__play-button">Play Again</button>
+		</div>
+	     <div class="container__notification" id="container__notification">
+			<p>You have already entered this letter</p>
+		 </div>
+	</div>
+	<script src="./js/main.js"></script>
+</body>
+</html>
