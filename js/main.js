@@ -9,6 +9,9 @@ const finalMsgRevealWord = document.querySelector("#popup__final-message--reveal
 const playAgainBtn = document.querySelector("#popup__play-button");
 const notification = document.querySelector("#container__notification");
 
+let letters = 'qwertyuiopasdfghjklzxcvbnm'.split('').sort();
+document.querySelector('.keyboard').innerHTML = letters.map(letter => `<li class="key">${letter}</li>`).join('');
+
 Math.random() > .5 ? body.style.background = '#010b05 url("./img/hangman2.jpg") no-repeat center center / cover' : body.style.background = '#010b05 url("./img/hangman1.jpg") no-repeat center center / cover';
 
 const words = [
@@ -968,7 +971,7 @@ function updateWrongLettersArray() {
 	// Display the letters
 	wrongLetters.innerHTML = `
 		${wrongLettersArray.length > 0 ? '<h3>Wrong</h3>': ''}
-		${wrongLettersArray.map(letter => ` <span> ${letter}</span>`)}
+		${wrongLettersArray.map(letter => `<span class="wrongletter">${letter}</span>`).join(' | ')}
 	`;
 
 	// Display the hangman parts
@@ -1003,11 +1006,39 @@ function showNotification() {
 	}, 2000);
 }
 
+// Detect the touch keyboard
+let keys = document.querySelectorAll(".key");
+
+keys.forEach(key => {
+	if(canPlay) {
+	    key.addEventListener('click', () => {
+		    const letter = key.textContent.toLowerCase();
+
+			if (selectedWord.includes(letter)) {
+				// If the char is not in the correctLetters
+				if(!correctLetters.includes(letter)) {
+					correctLetters.push(letter);
+					displayWord();
+				} else {
+					showNotification();
+				}
+			} else {
+				if(!wrongLettersArray.includes(letter)) {
+					wrongLettersArray.push(letter);
+					updateWrongLettersArray();
+				} else {
+					showNotification();
+				}
+			}
+	    });
+	}
+});
+
 // Detect the letter keydown presses
 window.addEventListener('keydown', (e) => {
 	if(canPlay) {
 		// This is the valid range of characters
-		if(e.keyCode >= 65 || e.keyCode <= 90) {
+		if(e.keyCode >= 65 && e.keyCode <= 90) {
 			const letter = e.key.toLowerCase();
 
 			if (selectedWord.includes(letter)) {

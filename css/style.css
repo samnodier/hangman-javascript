@@ -39,6 +39,21 @@ h1 {
 	text-align: center;
 }
 
+/*.title {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+*/
+
+.container {
+	display: flex;
+	flex-direction: row;
+	margin-top: 60px;
+	align-items: center;
+}
+
 .container__text {
     text-align: center;
     margin-top: 10px;
@@ -80,6 +95,12 @@ h1 {
 #wrongletters span {
 	text-transform: uppercase;
 	font-family: Montserrat, sans-serif;
+}
+
+.wrongletter {
+    padding: 2px 5px;
+    border: 1px solid #FFF;
+    cursor: not-allowed;
 }
 
 .container__word {
@@ -179,4 +200,43 @@ h1 {
 
 .container__notification.show {
 	bottom: -8px;
+}
+
+/* Separator to show what's going on */
+.separator {
+    width: 2px;
+    height: 270px;
+    background: #FFF;
+    margin: 0 40px;
+}
+
+.container__keyboard {
+    padding: 10px;
+}
+
+ol.keyboard {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 1rem;
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.keyboard li {
+    width: 35px;
+    height: 35px;
+    border: 1px solid #FFF;
+    text-align: center;
+    border-radius: 50%;
+    padding-top: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: Montserrat, sans-serif;
+}
+
+.keyboard li:hover {
+    background: #007bff;
+    transition: background .3s ease;
 }
