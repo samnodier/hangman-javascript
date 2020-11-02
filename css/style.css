@@ -16,7 +16,7 @@ body {
 	align-items: center;
 	margin: 0;
 	padding: 0;
-	overflow: hidden;
+	overflow-x: hidden;
 }
 
 /* Add a dark overlay */
@@ -123,6 +123,22 @@ h1 {
 	width: 30px;
 }
 
+.popup-container {
+	background: rgba(0,0,0,.3);
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: none;
+	align-items: center;
+	justify-content: center;
+}
+
+.popup-container * {
+	user-select: none;
+}
+
 .popup {
     background: #FFF;
     color: #010b05;
@@ -131,14 +147,9 @@ h1 {
     box-shadow: 1px 4px 20px rgba(255,255,255,0.5);
     padding: 31px;
     width: 400px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     align-items: center;
-    display: none;
 }
 
 #popup__final-message {
@@ -192,14 +203,17 @@ h1 {
     text-align: center;
     border-radius: 10px 10px 0;
     position: absolute;
-    bottom: -70px;
+    bottom: 0px;
     left: 50%;
+    display: none;
+    opacity: 0;
     transform: translate(-50%);
-    transition: bottom .5s ease-in-out;
+    transition: display, opacity .5s ease-in-out;
 }
 
 .container__notification.show {
-	bottom: -8px;
+	opacity: 1;
+	display: flex;
 }
 
 /* Separator to show what's going on */
@@ -239,4 +253,18 @@ ol.keyboard {
 .keyboard li:hover {
     background: #007bff;
     transition: background .3s ease;
+}
+
+@media screen and (max-width: 769px) {
+	.container {
+		display: flex;
+		flex-direction: column;
+		margin-top: 0;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.separator {
+	    display: none;
+	}
 }

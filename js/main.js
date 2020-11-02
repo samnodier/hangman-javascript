@@ -3,7 +3,7 @@ const body = document.querySelector("body");
 const figureParts = document.querySelectorAll(".container__figure--part");
 const wrongLetters = document.querySelector("#wrongletters");
 const word = document.querySelector("#word");
-const popup = document.querySelector(".popup");
+const popup = document.querySelector(".popup-container");
 const finalMsg = document.querySelector("#popup__final-message");
 const finalMsgRevealWord = document.querySelector("#popup__final-message--reveal-word");
 const playAgainBtn = document.querySelector("#popup__play-button");
@@ -12,7 +12,7 @@ const notification = document.querySelector("#container__notification");
 let letters = 'qwertyuiopasdfghjklzxcvbnm'.split('').sort();
 document.querySelector('.keyboard').innerHTML = letters.map(letter => `<li class="key">${letter}</li>`).join('');
 
-Math.random() > .5 ? body.style.background = '#010b05 url("./img/hangman2.jpg") no-repeat center center / cover' : body.style.background = '#010b05 url("./img/hangman1.jpg") no-repeat center center / cover';
+Math.random() > .5 ? body.style.background = '#010502 url("./img/hangman2.jpg") no-repeat center center / cover' : body.style.background = '#020202 url("./img/hangman1.jpg") no-repeat center center / cover';
 
 const words = [
 	"according",
