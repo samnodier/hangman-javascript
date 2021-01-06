@@ -13,3 +13,9 @@ This hangman game is made with vanilla JavaScript, no framework or library. To p
 - Show bottom notification when attempt to select the letter twice.
 - Show an awesome popup on __win__ or __lose__.
 - Provide an option to play again the game and start the whole process from the top.
+
+## Contributions
+
+Please view `CONTRIBUTE.md` for information related to how to contribute to this project.
+
+Thanks for your time.
